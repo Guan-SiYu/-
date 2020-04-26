@@ -1,0 +1,64 @@
+@import "../../common/common.wxss";
+.Box{
+  font-size:22rpx; 
+}
+button,button::after {
+  border: 0;
+}
+/* wzjz */
+label,button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* color gray*/
+.input-wrap,input,label,textarea,.input-wrap button{
+  background: rgb(237, 237, 237);
+  border-radius: 50rpx;
+
+}
+.title,input,textarea{
+  text-align: left;
+}
+.title{
+  font-size: 35rpx;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.input-wrap,textarea,.title{
+  width: 500rpx;
+  margin: 30rpx auto;
+}
+label{
+  color: rgb(153,153,152);
+  width: 150rpx;
+}
+input{
+  width: 350rpx;
+  height: 70rpx;
+  text-align: left;
+  font-size: 28rpx;
+}
+.input-wrap button{
+  height: 70rpx;
+  padding: 0;
+  width: 136rpx;
+  background: rgb(209,209,209);
+  font-size: 22rpx;
+  color:  rgb(153,153,152);
+}
+#phone{
+  width: 214rpx;
+}
+textarea{
+  box-sizing: border-box;
+  padding: 40rpx;
+  height: 160rpx;
+}
+  #sub{
+    border-radius: 30rpx;
+  background: rgb(45,240,255);
+  width: 236rpx;
+  color: white;
+  font-size: 30rpx;
+  padding: 0;
+  }

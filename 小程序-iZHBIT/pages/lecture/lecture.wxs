@@ -1,0 +1,21 @@
+function playData(lectureList) {
+  var pass = 0,
+  list = lectureList;
+  for (var i = 0; i < lectureList.length; i++) {
+    if (list[i].result == 1) {
+      pass += 1;
+      list[i].result = "通过";
+    } else {
+      list[i].result = "未通过";
+    }
+
+  }
+  return {
+    list: list,
+    pass: pass
+  };
+}
+
+module.exports = {
+  playData: playData
+}

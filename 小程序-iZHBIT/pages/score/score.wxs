@@ -1,0 +1,27 @@
+//选择学期
+function setTermData(grade){
+  var termList=[];
+  var startYear = grade+2000,//入学年份
+        finishYear =  grade+2000+4;//毕业年份+1
+  var model,begin,end,
+      order,//第1或第2学期
+      flag=true,
+      target = startYear; //目标年份初始化
+  while(target<finishYear){
+    begin = target;
+    end = target+1;
+    for(var i=0;i<2;i++){
+      order = flag ? 1 : 2;
+      model = begin+'-'+end+"学年第"+order+"学期";
+      termList.push(model);
+      flag = !flag;
+    }
+    target++;
+  }
+  return termList;
+}
+module.exports={
+  setTermData:setTermData,
+  // 常规数据
+  tip: '点击课程可查看详细分数和占比'
+}

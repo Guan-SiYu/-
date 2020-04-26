@@ -1,0 +1,35 @@
+<wxs src="exam.wxs" module="tools" />
+
+<canvas style=" width:750rpx; height:220rpx" canvas-id="navigation"></canvas>
+<!-- 头部 -->
+<view class="titleBar fl-r">
+  <image src="../../images/calendar.png" width="80rpx"></image>
+  <text>考试安排</text>
+</view>
+<!-- 提示卡 -->
+<view class="remind" data-info="{{tools.playData(examList)}}" bindtap="consoleData">
+  <view class="top">
+    <text id="name" class="ab-c-no">{{tools.playData(examList).recent.name}}</text>
+    <text id="date">{{tools.playData(examList).recent.month}}月{{tools.playData(examList).recent.day}}日</text>
+    <text id="time">{{tools.playData(examList).recent.time}}</text>
+  </view>
+  <text id="countdown" class="ab-hc-no">{{tools.playData(examList).diff}}</text>
+  <text id="tian">天</text>
+  <text id="room-sit" class="ab-hc-no">{{tools.playData(examList).recent.room}} 座位 {{tools.playData(examList).recent.sit}}</text>
+</view>
+<!-- 主体 -->
+<view class="Box">
+  <!-- 考试块 -->
+  <view class="wrap fl-r" wx:for="{{tools.playData(examList).list}}" wx:for-item="examInfo" wx:for-index="i">
+    <view class="fl-c">
+      <view class="exam" data-name="{{examInfo.name}}">{{examInfo.name}}</view>
+      <view class="room fl-r">{{examInfo.room}} 座位 {{examInfo.sit}}</view>
+    </view>
+    <view class="fl-brc tx-r">
+      <view class="day">{{examInfo.month}}月{{examInfo.day}}日</view>
+      <view class="time">{{examInfo.time}}</view>
+    </view>
+  </view>
+</view>
+<!-- icon -->
+<image class="icon" src="../../images/back.png" bindtap="backHomePage"></image>

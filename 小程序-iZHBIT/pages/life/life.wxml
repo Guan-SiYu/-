@@ -1,0 +1,18 @@
+<wxs src="../../common/com.wxs" module="tools" />
+<canvas style=" width:750rpx; height:220rpx" canvas-id="navigation">
+</canvas>
+<!-- 头部 -->
+<view class="title">生活</view>
+<!-- 卡样 -->
+  <image src="../../images/cardpicture.png" class="card-model"bindtap="goToCardPage">
+    <text>{{userName}}\n{{cardNumber}}</text>
+  </image>
+<view class="tip">点击校园卡进入详细页面</view>
+<!-- 主体 -->
+<view class="img-box">
+  <view class="wrap fl-c" wx:for="{{tools.getImgList('life',5)}}" wx:for-index="i" data-link="{{tools.life[i].link}}" bindtap="goPage">
+    <image src="{{item}}" bindlongtap="goPage"></image>
+    <text>{{tools.life[i].name}}</text>
+  </view>
+  <view style="clear:both"></view>
+</view>

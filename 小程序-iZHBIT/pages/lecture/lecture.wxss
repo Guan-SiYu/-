@@ -1,0 +1,52 @@
+@import "../../common/common.wxss";
+.Box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.amount{
+padding: 20rpx 26rpx;
+width: 168prx;
+height: 38rpx;
+border-radius: 10rpx;
+box-sizing: border-box;
+margin-left: 16rpx;
+font-size: 26rpx;
+
+
+}
+.wrap {
+  margin-top: 42rpx;
+  width: 538rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrap .lecture {
+  text-align: left;
+  font-size: 30rpx;
+  color:#3f3d36;
+  margin-bottom: 10rpx;
+}
+.wrap .time{
+  font-size: 20rpx;
+  color:  #b2b2b2;
+}
+
+
+
+.wrap .pass,.wrap .unpass{
+  border-radius: 50%;
+  width: 86rpx;
+  height: 86rpx;
+  color: whitesmoke;
+}
+
+.wrap .unpass{
+  background: #ed4c4c;
+  font-size: 18rpx;
+}
+.wrap .pass{
+  background: rgb(108, 234, 162);
+  font-size: 32rpx;
+}

@@ -1,0 +1,58 @@
+<wxs src="my.wxs" module="tools" />
+<canvas style=" width:750rpx; height:300rpx" canvas-id="navigation"></canvas>
+<!-- 顶部 -->
+<view class="fl-r-vc top-box">
+  <image src="../../images/my.png" class="my"></image>
+  <input id="serch" placeholder="新通知:感谢使用口袋北理"></input>
+  <view id="headPic">
+    <!-- <image class="headpic" src="../../images/my-demo.png"></image> -->
+  </view>
+  <button id="out">登出</button>
+</view>
+<!-- 头部 -->
+<view class="hd-box">
+  <text class="person">{{userName}}</text>
+  <text class="welcome">Welcom!</text>
+  <text class="welcomeZh">欢迎您使用口袋北理!</text>
+  <image class="more" src="../../images/my-more.png"></image>
+</view>
+
+<!-- 上课提示 -->
+<scroll-view class="box" style="height:484rpx" scroll-y="ture">
+  <view class="side"></view>
+  <!-- 这节 -->
+  <text class="ts"data-info="{{tools.getCur(allCourse)}}" bindtap="consoleData">正在上课</text>
+  <block wx:if="{{tools.getCur(allCourse)}}" >
+    <text class="room">{{tools.getCur(allCourse).courseLocation}}</text>
+    <text class="course-name">{{tools.getCur(allCourse).courseName}}</text>
+    <text class="time">{{tools.getCur(allCourse).time}}</text>
+  </block>
+  <text wx:else class="r-tx">没有课程安排哦！</text>
+
+  <!-- 下节 -->
+  <text class="ts" data-info="{{tools.getNext(allCourse)}}" bindtap="consoleData">下一节课</text>
+  <block wx:if="{{tools.getNext(allCourse)}}">
+    <text class="room">{{tools.getNext(allCourse).courseLocation}}</text>
+    <text class="course-name">{{tools.getNext(allCourse).courseName}}</text>
+    <text class="time">{{tools.getNext(allCourse).time}}</text>
+  </block>
+  <text wx:else class="r-tx">没有课程安排哦！</text>
+</scroll-view>
+<!-- 作业提示 -->
+<view class="box">
+  <text class="ts">作业提示</text>
+  <view class="unhand fl-r-hb">
+    <text class="r-tx">未提交作业</text>
+    <text class="r-tx">{{tools.getUnhand(homework)}}科</text>
+  </view>
+  <block wx:for="{{homework}}" wx:key="key">
+    <view class="unhand fl-r-hb">
+      <text class="r-tx">科目</text>
+      <text class="r-tx" wx:if="{{total!= 0}}">{{item}}</text>
+      <text class="r-tx" wx:else>暂无</text>
+    </view>
+  </block>
+<!-- //测试
+ -->
+ <view>{{tools.getCur(allCourse)}}</view>
+</view>

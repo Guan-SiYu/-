@@ -1,0 +1,25 @@
+@import "../../common/common.wxss";
+@import "../card/cardIndex.wxss";
+.title{
+  text-align: left;
+  font-size: 70rpx;
+  margin-bottom: 42rpx;
+  color: #1e1616;
+  text-shadow: 5rpx 10rpx 10rpx rgba(0,0, 0, 0.3);
+}
+.tip{
+  margin: 20rpx 0;
+}
+.wrap{
+  float: left;
+  margin: 19rpx;
+}
+.wrap image{
+  width: 180rpx;
+  height: 180rpx;
+}
+.wrap text{
+  text-align: center;
+  color: #3da4de;
+  font-size: 24rpx;
+}

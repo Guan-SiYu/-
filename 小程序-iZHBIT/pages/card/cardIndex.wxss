@@ -1,0 +1,62 @@
+@import "../../common/common.wxss";
+
+/* cardModel */
+
+
+
+ image.card-model {
+  box-sizing: border-box;
+  position: relative;
+  width: 650rpx;
+  height: 405rpx;
+  border-radius: 30rpx;
+  box-shadow: 10rpx 10rpx 5px #888888;
+}
+
+ image.card-model text {
+  position: absolute;
+  z-index: 1;
+  bottom: 32rpx;
+  left: 32rpx;
+  color: white;
+  font-size: 28rpx;
+}
+
+/* other  */
+
+.link {
+  color: whitesmoke;
+  width: 292rpx;
+  height: 78rpx;
+  margin: 28rpx auto;
+  border-radius: 15rpx;
+}
+.bg1{
+  background: #ffa227;
+}
+.bg2{
+  background: #c9c1b8;
+}
+
+.info {
+  margin: 26rpx 0;
+}
+
+text {
+  text-align: left;
+}
+
+text.key {
+  margin-left: 60rpx;
+  width: 220rpx;
+}
+
+text.val {
+  width: 350rpx;
+}
+
+.Box .link {
+  width: 236rpx;
+  height: 60rpx;
+  margin: 50rpx 20rpx;
+}

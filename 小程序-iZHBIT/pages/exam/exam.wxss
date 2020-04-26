@@ -1,0 +1,97 @@
+@import "../../common/common.wxss";
+
+/* 提示卡 */
+
+.remind {
+  width: 650rpx;height: 350rpx;
+  border-radius: 50rpx;
+  background: rgb(255, 255, 255);
+  margin: 35rpx auto 30rpx;
+  position: relative;
+}
+.remind .top{
+  position: absolute;
+  border-top-left-radius: 50rpx;border-top-right-radius: 50rpx;
+  width: 100%;
+  height: 110rpx;
+  background: linear-gradient(160deg, #f7b132 20%,#fc4e1b 80%);
+  color: white;
+}
+#name{
+  font-size: 43rpx;
+  color: white; 
+}
+#date{
+  top: 18rpx;
+  right: 38rpx;
+  color: white;
+  font-size: 31rpx;
+}
+#time{
+  top:66rpx;
+  right: 38rpx;
+  color: white;
+  font-size: 25rpx;
+}
+#countdown{
+  top:128rpx;
+  font-size: 120rpx;
+  color: #e86d6d;
+}
+#room-sit{
+  font-size: 30rpx;
+  bottom:30rpx;
+  margin-left: 10rpx;
+  color: #443a32;
+}
+#tian{
+  right: 205rpx;
+  bottom: 86rpx;
+  color: #b2b2b2;
+}
+#date,#time,#countdown,#tian,#room-sit{
+  position: absolute;
+}
+
+/* 其他 */
+
+.Box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrap {
+  margin-top: 32rpx;
+  width: 538rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrap .exam {
+  text-align: left;
+  font-size: 35rpx;
+  font-weight: bold;
+  color: #3f3d36;
+  margin-bottom: 10rpx;
+}
+
+.wrap .room {
+  font-size: 30rpx;
+  color: #b2b2b2;
+}
+
+.wrap .day{
+  font-size: 30rpx;
+  color: #e86d6d;
+}
+.wrap .time{
+  font-size: 26rpx;
+}
+
+/* icon */
+.icon{
+  width: 118rpx;
+  height: 118rpx;
+  margin-top: 60rpx;
+}

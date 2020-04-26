@@ -1,0 +1,144 @@
+//判断课程节数
+function jieShu(courseTime) {
+  if (courseTime) {
+    var length = courseTime.split("-").length;
+  }
+  return length;
+}
+//重复去除
+
+function removeRepeate(classCols) {
+  for (var i = 0; i < classCols.length; i++) {
+    var dayClass = classCols[i];
+    for (var j = 0; j < dayClass.length - 1; j++) {
+      var thisClass = dayClass[j];
+      var nextClass = dayClass[j + 1];
+      if (thisClass.courseName) {
+        var length = jieShu(thisClass.courseTime);
+        if (length == 3 || length == 4) {
+          if (thisClass.courseName == nextClass.courseName) {
+            dayClass.splice(j + 1, 1);
+          }
+        }
+      }
+    }
+    
+  }
+  return classCols;
+}
+//不同颜色设置
+var colorArr = ["lightblue", "yellow", "lightpink", "Lavender", "yellowgreen", "lightgray", "lightgreen"];
+var setBgcolor = function(classIndex, index) {
+  if (index % 2 == 0) {
+    var newcolorArr = [];
+    for (var i = 0; i < colorArr.length; i++) {
+      if (i < (colorArr.length - 2)) {
+        newcolorArr.push(colorArr[i + 2]);
+      } else if (i == (colorArr.length - 2)) {
+        newcolorArr.push(colorArr[0]);
+      } else {
+        newcolorArr.push(colorArr[1]);
+      }
+
+    }
+    colorArr = newcolorArr;
+  } else;
+  return colorArr[classIndex];
+}
+
+//设置单节课程的长度
+var getJieshu = function(courseTime) {
+  if (courseTime) {
+    var length = courseTime.split("-").length;
+  }
+  return length;
+}
+var setHeight = function(courseTime) {
+  var h = 10;
+  var jieshu = getJieshu(courseTime);
+  var height = h * jieshu + "vh";
+  return height;
+
+
+}
+//3节课补一个空view
+var addEmptyDiv = function(courseTime) {
+  var jieshu = getJieshu(courseTime);
+  if (jieshu == 3) {
+    return true;
+  } else {
+    return false;
+  }
+}
+//重复去除
+var showCourse = function(para) {
+  if (para) {
+    if (para == null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+}
+
+
+//判断当前周
+
+function getCurWeek(startTermDate) {
+  var ONEDAY = 24 * 60 * 60 * 1000,
+    WEEKLEN = 7;
+  var start = getDate(startTermDate.replace('-', '/')); // new Date //set 0:0:0
+  var startWeek = start.getDay() == 0 ? 7 : start.getDay(); //开学当天星期几
+
+  var today = getDate(); //new Date();
+  today = getDate(today.getFullYear(), today.getMonth(), today.getDate()); //set 0:0:0
+
+  var distance = (today - start) / ONEDAY + 1;
+  distance = startWeek != 1 ? distance - (WEEKLEN - startWeek) - 1 : distance; //去除开学不是星期一的那几天
+
+  var result = Math.floor(distance / WEEKLEN) + 1;
+  return result;
+}
+
+//picker栏的数据
+
+function showPicker(startTermDate) {
+  var showWeekArr = []; //显示的
+  var currentWeek = getCurWeek(startTermDate);
+  for (var i = 1; i <= 17; i++) {
+    showWeekArr.push(i);
+  }
+  showWeekArr.splice(0, 0, currentWeek);
+  return showWeekArr;
+}
+
+function pickPicker() {
+  var pickWeekArr = []; //选择的
+  for (var i = 1; i <= 17; i++) {
+    pickWeekArr.push(i);
+  }
+  pickWeekArr.splice(0, 0, "当前周");
+  return pickWeekArr;
+}
+/*课程小窗*/
+
+
+
+module.exports = {
+  removeRepeate: removeRepeate,
+  // 样式
+  setBgcolor: setBgcolor,
+  setHeight: setHeight,
+  showCourse: showCourse,
+  addEmptyDiv: addEmptyDiv,
+  //课程小窗
+ 
+  // picker
+  showPicker:showPicker,
+  pickPicker:pickPicker,
+  index:0,
+  // 常规数据
+  timeArr: ["8:00\n8:45", "8:50\n-\n9:35", "9:55-\n10:40", "10:45-11:30", "11:40-12:45", "12:30-13:15", "14:00-12:45", "14:50-15:35", "15:55-16:40", "16:45-17:30", "18:40-19:25", "19:30-20:15", "20:25-21:10", "21:15-22:00"],
+  dayArr: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+  term: "2018-2019年第二学期"
+}

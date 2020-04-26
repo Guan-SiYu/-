@@ -1,0 +1,30 @@
+<wxs src="cardIndex.wxs" module="tools" />
+<canvas style=" width:750rpx; height:220rpx" canvas-id="navigation">
+</canvas>
+<!-- 头部 -->
+<view class="titleBar fl-r">
+  <image src="../../images/schoolcard.png" width="228rpx" height="218rpx"></image>
+  <text>电子校园卡</text>
+</view>
+<!-- 卡样 -->
+<image src="../../images/cardpicture.png" class="card-model">
+  <text>{{info[1][1]}}\n{{info[0][1]}}</text>
+</image>
+<!-- 主体 -->
+<view class="fl-r">
+  <view class="link wzjz bg1">校园卡信息</view>
+  <view class="link wzjz bg2" bindtap="goToCardPage">我捡到卡了</view>
+</view>
+<view class="Box">
+  <view class="info fl-r" wx:for="{{info}}" wx:for-item="i">
+    <text class="key" >{{i[0]}}/</text>
+    <text class="val" >{{i[1]}}</text>
+  </view>
+  <view class="tip">{{tools.tip}}</view>
+<view class="fl-rc">
+  <view class="link wzjz bg-g1">更改信息</view>
+  <view class="link wzjz bg-r1">我丢卡了</view>
+</view>  
+</view>
+<!-- Back Icon -->
+<image src="../../images/back.png" bindtap="backHomePage"></image>

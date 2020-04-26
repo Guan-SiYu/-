@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/my/my",
+    "pages/study/study",
+    "pages/life/life",
+    "pages/score/score",
+    "pages/card/cardIndex",
+    "pages/exam/exam",
+    "pages/lecture/lecture",
+    "pages/classTable/class",
+    "pages/card/findcard",
+    "pages/calendar/calendar"
+  ],
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      },
+      {
+        "pagePath": "pages/classTable/class",
+        "text": "课表"
+      },
+      {
+        "pagePath": "pages/study/study",
+        "text": "学习"
+      },
+      {
+        "pagePath": "pages/life/life",
+        "text": "生活"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap7.json"
+}

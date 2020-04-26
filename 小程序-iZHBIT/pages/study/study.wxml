@@ -1,0 +1,14 @@
+<wxs src="../../common/com.wxs" module="tools" />
+
+<canvas style=" width:750rpx; height:220rpx" canvas-id="navigation">
+</canvas>
+<!-- 头部 -->
+<view class="title" >学习</view>
+<!-- 主体 -->
+<view class="img-box">
+  <view class="wrap fl-c" wx:for="{{tools.getImgList('study',7)}}" wx:for-index="i" data-link="{{tools.study[i].link}}" bindtap="goPage">
+    <image src="{{item}}" bindlongtap="goPage"></image>
+    <text>{{tools.study[i].name}}</text>
+  </view>
+  <view style="clear:both"></view>
+</view>

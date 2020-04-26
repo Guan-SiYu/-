@@ -1,0 +1,5 @@
+
+
+module.exports = {
+  tip:"这提示太尼玛长"
+}

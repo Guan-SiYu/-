@@ -1,0 +1,52 @@
+@import "../../common/common.wxss";
+.day-box .week,.list-box .list,.day-box .day,.list-box .holiday{
+  width: 75rpx;
+  color: rgb(85, 76, 67);
+}
+.day-box .week,.list-box .list ,.list-box,.day-box .day,.list-box .holiday,.mark{
+  font-size: 22rpx;
+  color: rgb(85, 76, 67);
+}
+/* Height handle */
+.list-box .list,.day-box .day-row{
+  height: 60rpx;
+}
+.day-box .week,.extra,.list-box .list{
+  font-size: 20rpx;
+}
+.extra{
+    color: rgb(172, 169, 169);
+}
+.allbox{
+  margin-top:20rpx; 
+}
+.list-box{
+  margin-left: 25rpx;
+  box-sizing: border-box;
+}
+.list-box .holiday{
+  height: 300rpx;/* 60*5 */
+  }
+.extra{
+  margin:40rpx auto 0;
+  text-align: left;
+  width: 526rpx;
+  display: block;
+}
+/* markWEEKEND */
+.mark,.holidayRow{
+  border-radius: 50rpx;
+  background: rgb(212, 255, 227);
+}
+.holidayRow{
+  height: 45rpx;
+  margin: 15rpx 0;
+}
+.mark{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 5rpx 12rpx 5rpx 13rpx;
+}
+
+
+

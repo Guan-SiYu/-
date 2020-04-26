@@ -1,0 +1,63 @@
+
+//计算剩余天数
+function funcCalculate(recent) {
+  var rct = recent.date.replace('-', '/').replace('-', '/');
+  var today = getDate();
+  today = getDate(today.getFullYear(), today.getMonth(), today.getDate());//set 0:0:0
+  var recentExam = getDate(rct);
+  var diff = (recentExam - today) / (60 * 60 * 24 * 1000);
+  return diff;
+}
+
+// 数据处理:
+function playData(examList) {
+  //split date to: add month&day
+  for (var i = 0; i < examList.length; i++) {
+    var dateArray = examList[i].date.split('-');
+    var month = dateArray[1];
+    var day = dateArray[2];
+    examList[i].month = month;
+    examList[i].day = day;
+  }
+  // 不同日期排序
+  var temp, currentDate, nextDate, currentTime, nextTime;
+  for (var n = 0; n < examList.length - 1; n++) {
+    for (var j = 0; j < examList.length - 1; j++) {
+      currentDate = getDate(examList[j].date);
+      nextDate = getDate(examList[j + 1].date);
+        
+      nextTime = parseFloat(examList[j + 1].time.split('-')[0].replace(':', '.'));
+      if (currentDate > nextDate) {
+        temp = examList[j];
+        examList[j] = examList[j + 1];
+        examList[j + 1] = temp;
+      }
+    }
+  }
+  //相同日期时间排序
+  var curDateStr, nextDateStr;
+  for (var p = 0; p < examList.length - 1; p++) {
+    curDateStr = examList[p].date;
+    nextDateStr = examList[p + 1].date;
+    if (curDateStr == nextDateStr) {
+      temp = examList[p];
+      examList[p] = examList[p + 1];
+      examList[p + 1] = temp;
+    }
+  }
+
+
+  var recent = examList[0];
+  var diff = funcCalculate(recent);
+  var list = examList;
+  return {
+    list:list,
+    recent:recent,
+    diff:diff
+  };
+}
+
+
+module.exports={
+  playData:playData
+}

@@ -1,0 +1,151 @@
+//作业未交数
+function getUnhand(arr) {
+  return arr.length;
+}
+
+
+
+//判断当前周
+function getCurWeek(startTermDate) {
+  var ONEDAY = 24 * 60 * 60 * 1000,
+    WEEKLEN = 7;
+  var start = getDate(startTermDate.replace('-', '/').replace('-', '/')); // new Date //set 0:0:0
+  var startWeek = start.getDay() == 0 ? 7 : start.getDay(); //开学当天星期几
+
+  var today = getDate(); //new Date();
+  today = getDate(today.getFullYear(), today.getMonth(), today.getDate()); //set 0:0:0
+
+  var distance = (today - start) / ONEDAY + 1;
+  distance = startWeek != 1 ? distance - (WEEKLEN - startWeek) - 1 : distance; //去除开学不是星期一的那几天
+
+  var result = Math.floor(distance / WEEKLEN) + 1;
+  return result;
+}
+
+var twoTimeList = ["8:00-9:35", "9:55-11:30", "11:40-13:15", "14:00-15:35", "15:55-17:30", "18:40-20:15", "20:15-22:00"], //两节
+  threeTimeList = ["9:55-12:25", "18:40-21:10"], //三节连上
+  fourTimeList = ["9:55-13:15", "14:00-17:30", "15:55-20:15", "18:40-22:00"];//四节连上
+var curWeek = getCurWeek('2019-09-05');
+var curDay = getDate().getDay();
+curDay = curDay == 0 ? 6 : curDay - 1;
+//今日课程
+
+//根据课开始和节数得出时间"8:00-9:55"
+
+function getDuration(begin, node) {
+  switch (node) {
+    case 2:
+      { //1 3 5 7 9 11 13
+        idx = (begin - 1) / 2;
+        time = twoTimeList[idx];
+      }
+      break;
+    case 3:
+      { // 3  11
+        idx = begin == 3 ? 0 : 1;
+        time = threeTimeList[idx];
+      }
+      break;
+    case 4:
+      { // 3 7 9 11
+        begin = begin == 3 ? 5 : begin; //5 7 9 11
+        idx = (begin - 3) / 2;
+        time = fourTimeList[idx-1];
+      }
+      break;
+    default:
+      return "something error"
+  }
+  return time;
+}
+var getarr, node, begin, duration, idx, time, todayCourse;
+
+
+//判断课程节数
+function jieShu(courseTime) {
+  if (courseTime) {
+    var length = courseTime.split("-").length;
+  }
+  return length;
+}
+//重复去除
+function removeRepeate(classCols) {
+  for (var i = 0; i < classCols.length; i++) {
+    var dayClass = classCols[i];
+    for (var j = 0; j < dayClass.length - 1; j++) {
+      var thisClass = dayClass[j];
+      var nextClass = dayClass[j + 1];
+      if (thisClass.courseName) {
+        var length = jieShu(thisClass.courseTime);
+        if (length == 3 || length == 4) {
+          if (thisClass.courseName == nextClass.courseName) {
+            dayClass.splice(j + 1, 1);
+          }
+        }
+      }
+    }
+
+  }
+  return classCols;
+}
+
+function setTodayCourse(allCourse) {
+    allCourse=removeRepeate(allCourse);//去除重复
+   todayCourse = allCourse[curDay]; //今日课程原始数据
+  for (var i = 0; i < todayCourse.length; i++) { //加上time
+    if (todayCourse[i].courseTime) {
+      getarr = todayCourse[i].courseTime.slice(1, -2).split('-'); //["07","08"]
+      node = getarr.length;
+      begin = parseInt(getarr[0]); //7
+      time = getDuration(begin, node);
+      todayCourse[i].time = time;
+    }
+  }
+  return todayCourse;
+}
+
+
+//获取当前课程
+var mydate = getDate();
+var hour = mydate.getHours(),
+    minute = mydate.getMinutes();
+var nowtime = parseFloat(hour + "." + minute);
+var bg, end, curCourseInfo, curIdx, nextIdx, nextCourseInfo, curBgTime, nextBgTime;
+
+function getCur(allCourse) { //正在上课
+  var todayCourse = setTodayCourse(allCourse);
+  for (var j = 0; j < todayCourse.length; j++) {
+    if (todayCourse[j].time) {
+      bg = parseFloat(todayCourse[j].time.split('-')[0].replace(':', '.'));
+      end = parseFloat(todayCourse[j].time.split('-')[1].replace(':', '.'));
+      if (nowtime >= bg && nowtime <= end) {
+        curCourseInfo = todayCourse[j];
+        curIdx = j;
+      }
+    }
+  }
+  return curCourseInfo;
+}
+
+function getNext(allCourse) { //下一节课
+  todayCourse = setTodayCourse(allCourse); //..
+  nextIdx = curIdx + 1;
+  if (todayCourse[nextIdx]) {
+    curBgTime = parseFloat(curCourseInfo.time.split('-')[0].replace(':', '.'));
+    nextBgTime = parseFloat(todayCourse[nextIdx].time.split('-')[0].replace(':', '.'));
+    if (nowtime > curBgTime && nowtime < nextBgTime) {
+      nextCourseInfo = todayCourse[nextIdx];
+    }
+  }
+  return nextCourseInfo;
+}
+
+
+module.exports = {
+  getUnhand: getUnhand,
+  getCur: getCur,
+  getNext: getNext,
+  //测试
+
+ 
+}

@@ -1,0 +1,29 @@
+<wxs src="calendar.wxs" module="tools" />
+  <canvas style=" width:750rpx; height:220rpx" canvas-id="navigation"></canvas>
+<!-- 头部 -->
+<view class="titleBar fl-r">
+  <image src="../../images/calendar.png" width="80rpx"></image>
+  <text>校园日历</text>
+</view>
+<!-- 日历主体 -->
+<view class="Box">
+  <text class="tip">长按校历中某日,可查看当周课程</text>
+  <view class="allbox fl-r">
+    <view class="list-box fl-c">
+      <view class="list wzjz" wx:for="{{list}}" wx:key="key">{{item}}</view>
+      <view class="holiday wzjz">{{holiday}}</view>
+    </view>
+    <view class="day-box}}">
+      <view class="week-row day-row fl-r">
+        <view class="week wzjz" wx:for="{{weekArr}}" wx:key="key">{{item}} </view>
+      </view>
+      <view class=" fl-r {{tools.isHoliday(rowIndex)?'holidayRow':'day-row'}}" wx:for="{{days}}" wx:for-item="dayRow" wx:for-index="rowIndex">
+        <view class=" wzjz {{tools.markWeekend(rowIndex,index)?'mark':'day'}}" wx:for="{{dayRow}}">{{item}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 底部 -->
+<view class="extra">
+  <text>{{extraText}}</text>
+</view>

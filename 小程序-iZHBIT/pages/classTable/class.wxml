@@ -1,0 +1,58 @@
+<wxs src="class.wxs" module="tools" />
+<!-- 固定栏 -->
+<view class="headBar fl-c" >
+  
+<canvas style=" width:750rpx; height:140rpx" canvas-id="navigation"></canvas>
+  <!-- 选择第几周 --> 
+  <picker bindchange="bindPickerChange" value="{{tools.index}}" range="{{tools.pickPicker()}}">
+    <view class="fl-r align-items">
+
+      <text class="currentWeek">第{{tools.showPicker(startTermDate)[index]}}周</text>
+      <image src="../../images/courseTable.png"></image>
+    </view>
+  </picker>
+
+
+  <!-- 学期 -->
+  <text class="term">{{tools.term}}</text>
+  <!-- 星期 -->
+  <view class="fl-r">
+    <view class="placeholder"></view>
+    <view class="day wzjz" wx:for="{{tools.dayArr}}" wx:key="key">{{item}}</view>
+  </view>
+</view>
+<!-- 课程表开始了，Yo -->
+<view class=" table fl-r">
+  <!-- 时段 -->
+  <view class="sideBar fl-c">
+    <view class="time wzjz fl-c" wx:for="{{tools.timeArr}}" wx:key="key">
+      <text class="order">{{index+1}}</text>
+      <text>\n{{item}}</text>
+    </view>
+  </view>
+  <!-- 列 -->
+  <view class="classCol fl-c" wx:for="{{tools.removeRepeate(classCols)}}"  wx:for-index="index" wx:key="key">
+    <!-- 每节课 -->
+    <block wx:for="{{item}}" wx:for-index="classIndex" wx:for-item="classInfo" wx:key="key">
+      <!-- 有课 -->
+      <block wx:if="{{classInfo.courseName !== undefined }}">
+        <text class="class" style="background-color:{{tools.setBgcolor(classIndex,index)}};height:{{tools.setHeight(classInfo.courseTime)}}"  data-info="{{classInfo}}" bindtap="showPopUps">{{classInfo.courseName}}\n{{classInfo.courseLocation}}
+        </text>
+        <view wx:if="{{tools.addEmptyDiv(classInfo.courseTime)}}" class="IfthreeClass"></view>
+      </block>
+      <!-- 没课 -->
+      <view wx:else class="empty"></view>
+    </block>
+  </view>
+</view>
+
+<!-- 课程小窗 -->
+<view class="window" wx:if="{{showPop}}" bindtap="closePop">
+  <view class="pop-ups">
+    <view class="course">{{popInfo.courseName}}</view>
+      <view class="info">
+        <view class="info-key">{{popInfo.courseLocation}}</view>
+        <view class="info-val">{{popInfo.courseTime}}</view>
+      </view>
+  </view>
+</view>

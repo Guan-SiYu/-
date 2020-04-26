@@ -1,0 +1,137 @@
+@import "../../common/common.wxss";
+text{
+  text-align: left;
+}
+page{
+  margin-top: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+image.my{
+  width:40rpx;
+  height:52rpx;
+}
+image.more{
+  width: 56rpx;
+  height: 56rpx;
+}
+image.headpic{
+  width: 60rpx;
+  height:60rpx;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  flex-direction:column;
+  align-items: center; 
+  margin-bottom: 100rpx;
+}
+.top-box,.hd-box,.box{
+  width: 594rpx;
+}
+/* top-box */
+.top-box{
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+input#serch{
+  width: 398rpx;
+  height: 60rpx;
+  box-sizing: border-box;
+  border-radius: 30rpx;
+  background: white;
+  padding: 15rpx;/*placeholder居中问题*/
+  font-size: 30rpx;
+}
+.top-box #headPic{
+  width: 60rpx;
+  height:60rpx;
+  
+}
+button#out{
+  background: transparent;
+  color: #0671ba;
+  font-size: 26rpx;
+  padding: 0;
+  width: 70rpx;
+  height: 60rpx;
+  box-sizing: border-box;
+  margin: 0;
+  position: static;
+}
+button::after{
+  width: 0;
+  height: 0;
+}
+/* head box */
+.hd-box{
+  margin: 20rpx 0;
+  position: relative;
+  line-height: 1;
+}
+.hd-box text{
+  display: block;
+}
+.hd-box .person{
+  font-size: 100rpx;
+  color: #fc9b32;
+  font-weight: bold;
+
+}
+.hd-box .welcome{
+  font-size: 70rpx;
+  color: #4c4b4b;
+  font-weight: bolder;
+  margin: 10rpx 0;
+  /* padding-left: 5rpx; */
+
+}
+.hd-box .welcomeZh{
+  font-size: 30rpx;
+  color: #8ea5b2;
+  /* padding-left: 5rpx; */
+
+}
+.hd-box .more{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+/* box */
+.box{
+  box-sizing: border-box;
+  border-radius: 30rpx;
+  background: #dee1e2;
+  margin-top:33rpx; 
+  padding:20rpx 42rpx;
+  line-height: 1;
+}
+.box .ts{
+  color: #2a81ba;
+  font-weight: bolder;
+  margin: 40rpx 0 28rpx; 
+  font-size: 38rpx;
+}
+.box text{
+  display: block;
+}
+.r-tx{
+  font-size: 28rpx;
+  margin-bottom: 28rpx;
+  color: #94a9b4;
+}
+/* 下一节课 */
+.room{
+  font-size: 60rpx;
+  color: #74919e;
+}
+.course-name{
+  font-size: 40rpx;
+  color:#8ea5b2;
+  margin: 20rpx 0;
+}
+.time{
+  color: #a7b1b7;
+  font-size: 36rpx;
+}
+

@@ -1,0 +1,186 @@
+/* 居中问题 */
+/* absolute center*/
+
+.ab-c-no {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ab-hc-no{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+.ab-vc-no{
+  position: absolute;
+top: 50%;
+transform: translate(0,-50%);
+}
+
+/* 导航 */
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* 布局样式 */
+
+.fl-r {
+  display: flex;
+  flex-direction: row;
+}
+.fl-r-vc{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.fl-rc {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.fl-c {
+  display: flex;
+  flex-direction: column;
+}
+.fl-brc{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fl-r-hb{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+}
+.fl-c-hb{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+}
+.align-items {
+  align-items: center;
+}
+
+.wzjz {
+  /* 设在text的父元素 */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 子view在父view里居中 */
+
+.ct {
+  display: flex;
+  margin: auto;
+}
+
+/* Page */
+
+page {
+  background: rgb(237, 237, 237);
+  box-sizing: border-box;
+  padding: 40rpx 50rpx;
+  text-align: center;
+  margin-top: 140rpx;
+}
+
+/* 标题 */
+
+.titleBar {
+  color: #333;
+  align-items: flex-end;
+  padding-bottom: 40rpx;
+}
+
+.titleBar image {
+  width: 80rpx;
+  height: 90rpx;
+}
+
+.titleBar text {
+  font-size: 45rpx;
+}
+
+/* 课程成绩+讲座信息titleBar */
+
+.titleBar2 image {
+  margin-right: 12rpx;
+  width: 88rpx;
+  height: 104rpx;
+}
+
+.titleBar2 text {
+  color: rgb(39, 36, 32);
+  font-size: 52rpx;
+  text-align: left;
+}
+
+.titleBar2 .pick {
+  color: #bbbcbb;
+  font-size: 28rpx;
+  text-align: left;
+}
+
+/* Box主体容器 */
+
+.Box {
+  width: 650rpx;
+  border-radius: 50rpx;
+  background: rgb(255, 255, 255);
+  padding: 30rpx 0;
+}
+
+/* tip提示 */
+
+.tip {
+  font-size: 23rpx;
+  color: #b7b7b7;
+}
+
+text {
+  /* display: block; */
+  color: #3f3d36;
+}
+
+/* bg-color */
+
+.bg-r1 {
+  background: rgb(255, 50, 101);
+}
+
+.bg-g1 {
+  background: rgb(25, 240, 255);
+}
+
+.bg-o1 {
+  background: rgb(255, 162, 39);
+}
+
+/* text-color */
+.tx-r{
+  text-align: right
+}
+.txc-o1 {
+  color: rgb(255, 162, 39);
+}
+
+.txc-w1 {
+  color: whitesmoke;
+}
+
+
+/* back */
+image[src="../../images/back.png"]{
+  width: 100rpx;
+  height: 100rpx;
+  margin: 50rpx auto 0rpx;
+}

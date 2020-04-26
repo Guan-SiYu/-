@@ -1,0 +1,24 @@
+<wxs src="lecture.wxs" module="tools" />
+<canvas style=" width:750rpx; height:220rpx" canvas-id="navigation">
+</canvas>
+<!-- 头部 -->
+<view class="titleBar fl-r">
+  <image src="../../images/schoolcard.png" width="228rpx" height="218rpx"></image>
+  <text>讲座信息</text>
+</view>
+<view class="tip">听讲座信息</view>
+
+<!-- 主体 --> 
+<view class="Box">
+  <view class="amount wzjz bg-o1 txc-w1">已通过/{{tools.playData(lectureList).pass}}场</view>
+  <!-- 讲座块 -->
+  <view class="wrap fl-r" wx:for="{{tools.playData(lectureList).list}}" wx:for-item="lectureInfo" wx:for-index="i">
+    <view class="fl-c">
+      <view class="lecture">{{lectureInfo.name}}</view>
+      <view class="time fl-r">{{lectureInfo.time}}</view>
+    </view>
+    <view class=" wzjz {{lectureInfo.result=='通过'?'pass':'unpass'}}">{{lectureInfo.result}}</view>
+  </view>
+</view>
+<!-- Back Icon -->
+<image src="../../images/back.png" bindtap="backHomePage"></image>

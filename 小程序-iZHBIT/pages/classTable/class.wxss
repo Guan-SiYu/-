@@ -1,0 +1,137 @@
+
+
+.fl-r {
+  display: flex;
+  flex-direction: row;
+}
+
+.fl-c {
+  display: flex;
+  flex-direction: column;
+}
+.align-items{
+  align-items: center
+}
+.wzjz{
+  /* 设在text的父元素 */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+/* 横向宽度 */
+.headBar .day,.table .classCol .class,.table .classCol .IfthreeClass,.table .classCol .empty,.headBar .placeholder{
+  width: 93rpx;
+}
+/* <!-- 选择第几周 --> */
+.currentWeek{
+  font-size: 65rpx;
+  padding: 30rpx;
+}
+image{
+  width: 44rpx;
+  height: 28rpx;
+}
+/* 学期 */
+.term{
+  color: gray;
+  font-size: 28rpx;
+  margin:-20rpx 0 30rpx 30rpx ;
+}
+/* 侧边：上课时段 */
+.sideBar .time {
+  border-bottom: 2rpx silver solid;
+  background: "blue";
+  box-sizing: border-box;
+  width: 75rpx;
+  margin: 0 10rpx;
+  height: 10vh;/*与单节课程保持一致*/
+  line-height: 16rpx;
+  font-size: 16rpx;
+}
+.sideBar .time .order{
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+/* 上边：周几 */
+.headBar{
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  background: white;
+}
+.headBar .nav{
+  font-size: 38rpx;
+  color: whitesmoke;
+  width: 750rpx;
+  height: 176rpx;
+  background: linear-gradient(160deg, #00c6ff 20%,#0072ff 80%);
+}
+.headBar .nav text{
+  margin-top: 70rpx;
+}
+.headBar .day {
+  height: 5vh;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+/* 课表+时段 */
+.table{
+  position: absolute;
+  top: 440rpx;
+}
+/* 单个课程项*/
+.table .classCol .class {
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  border: 2rpx solid white;
+ /* hight被动态设置了 */
+  padding: 13rpx;
+  font-size: 18rpx;
+}
+.table .classCol .empty {
+  height: 20vh;
+}
+.table .classCol .IfthreeClass{
+  height: 10vh;
+
+}
+
+/* window小窗 */
+.window{
+  width: 100vw;height: 100vh;
+  position: fixed;
+  top:0;left: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 999;
+}
+.pop-ups {
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 428rpx;
+  margin: 0 auto;
+  background: white;
+  text-align: left;
+  border-radius: 5rpx;
+  padding: 56rpx;
+}
+.pop-ups .course{
+  font-size: 32rpx;
+  color: rgb(135, 206, 236);
+}
+.pop-ups .info{
+  font-size: 28rpx;
+  justify-content: space-between;
+  margin-top: 44rpx;
+  color: #91908e;
+}
+.info .info-val{
+  color: black;
+  font-weight: bold;
+}

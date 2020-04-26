@@ -1,0 +1,93 @@
+@import "../../common/common.wxss";
+
+.Box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100rpx 0;
+}
+
+.gpa {
+  justify-content: flex-end;
+  margin: 42rpx 0;
+}
+
+.gpa view {
+  width: 168prx;
+  height: 38rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid rgb(255, 162, 39);
+  box-sizing: border-box;
+  margin-left: 16rpx;
+  font-size: 24rpx;
+  padding: 0 24rpx;
+}
+
+.wrap {
+  margin-top: 42rpx;
+  width: 538rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrap .course {
+  text-align: left;
+  font-size: 26rpx;
+}
+
+.wrap .xfjd, .pop-ups .xfjd {
+  margin-top: 16rpx;
+}
+
+.wrap .xfjd view, .pop-ups .xfjd view {
+  border: none;
+  background: rgb(135, 206, 236);
+  color: white;
+  padding: 8rpx 16rpx;
+  border-radius: 15rpx;
+  margin-right: 16rpx;
+  font-size: 19rpx;
+}
+
+.wrap .scoreCircle {
+  border-radius: 50%;
+  background: rgb(108, 234, 162);
+  width: 86rpx;
+  height: 86rpx;
+  color: whitesmoke;
+}
+
+/* 成绩小窗 */
+.window{
+  width: 100vw;height: 100vh;
+  position: fixed;
+  top:0;left: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 999;
+}
+.pop-ups {
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 428rpx;
+  margin: 0 auto;
+  background: white;
+  text-align: left;
+  border-radius: 50rpx;
+  padding: 56rpx;
+}
+.pop-ups .course{
+  font-size: 32rpx;
+  color: rgb(135, 206, 236);
+}
+.pop-ups .info{
+  font-size: 28rpx;
+  justify-content: space-between;
+  margin-top: 44rpx;
+  color: #91908e;
+}
+.info .info-val{
+  color: black;
+  font-weight: bold;
+}

@@ -1,0 +1,34 @@
+//Index Page
+var life= [
+  { name: "课程成绩", link: "../score/score" },
+  { name: "学分素拓", link: "../score/score" },
+  { name: "考试安排", link: "../exam/exam" },
+  { name: "讲座课室", link: "../score/score" },
+  { name: "讲座信息", link: "../lecture/lecture" },
+];
+var study = [
+  { name: "课程成绩",link:"../score/score"},
+  { name: "学分素拓", link: "../score/score" },
+  { name: "考试安排", link: "../exam/exam" },
+  { name: "讲座课室", link: "../score/score" },
+  { name: "讲座信息", link: "../lecture/lecture" },
+  { name: "校园日历", link: "../calendar/calendar" },
+  { name: "英语四六级",link: "../score/score"}  
+];
+//img src
+var imgItem = "../../images/";
+function getImgList(page,imgAmount) { //lifeIndex
+  imgItem += page;
+  var imgList = [];
+  for (var i = 1; i <= imgAmount; i++) {
+    imgList.push(imgItem + i + ".png");
+  }
+  return imgList;
+}
+
+module.exports = {
+  getImgList: getImgList,
+  study:study,
+  life:life,
+}
+

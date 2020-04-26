@@ -1,0 +1,57 @@
+<wxs src="score.wxs" module="tools" />
+<!-- 开工 canvas-->
+<canvas style=" width:750rpx; height:220rpx" canvas-id="navigation">
+</canvas>
+<!-- 主体 -->
+<view class="Box"> 
+  <!-- 头部 -->
+  <view class="titleBar2 fl-r">
+    <image src="../../images/score.png" width="80rpx"></image>
+    <view class="fl-c">
+      <text>课 程 成 绩</text>
+      <!-- 学期 -->
+      <picker picker bindchange="bindPickerChange" value="{{index}}" range="{{tools.setTermData(userGrade)}}">
+        <view class="pick">学期/{{tools.setTermData(userGrade)[index]}}</view>
+      </picker>
+      <!-- 绩点 -->
+      <view class="gpa fl-r">
+        <view class="bg-o1 txc-w1 wzjz"> 〇 学分统计 </view>
+        <view class="txc-o1 wzjz"> 〇 绩点/ {{GPA}} </view>
+      </view>
+    </view>
+
+  </view>
+  <!-- 提示 -->
+  <view class="tip">{{tools.tip}}</view>
+  <!-- 成绩块 -->
+  <view id="father" class="wrap fl-r" wx:for="{{scoreList}}" wx:for-item="scoreInfo" catchtap="showPopUps" wx:for-index="scoreIndex" data-index="{{scoreIndex}}">
+    <view class="fl-c">
+      <view class="course">{{scoreInfo.course}}</view>
+      <view class="xfjd fl-r">
+        <view class="wzjz">学分{{scoreInfo.credit}}</view>
+        <view class="wzjz">{{scoreInfo.kind}}</view>
+      </view>
+    </view>
+    <view class="scoreCircle wzjz">{{scoreInfo.score}}</view>
+  </view>
+</view>
+<!-- 成绩小窗 -->
+<view class="window" wx:if="{{showPop}}" bindtap="closePop">
+  <view class="pop-ups">
+    <view class="course">{{popInfo.course}}</view>
+    <view class="xfjd fl-r">
+      <view class="wzjz">学分/{{popInfo.credit}}</view>
+      <view class="wzjz">{{popInfo.kind}}</view>
+    </view>
+
+    <block wx:for="{{popInfo.info}}" wx:for-index="idx" wx:for-item = "itm">
+      <view class="info fl-r">
+        <view class="info-key">{{idx}}</view>
+        <view class="info-val">{{itm}}</view>
+      </view>
+    </block>
+
+  </view>
+</view>
+<!-- Back Icon -->
+<image src="../../images/back.png" bindtap="backHomePage"></image>
